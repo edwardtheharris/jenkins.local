@@ -3,3 +3,9 @@
     name: jenkins/jenkins:alpine
     pull: yes
     state: present
+- docker_container:
+    image: jenkins/jenkins:alpine
+    name: jenkins
+    state: started
+    volumes:
+      - /srv/jenkins:/var/jenkins_home
