@@ -17,7 +17,6 @@ install:
   - ansible --version
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' >ansible.cfg
-  - ansible-galaxy install roles/actual
 script:
   # Basic role syntax check
   - ansible-playbook site.yml -i roles/actual/tests/inventory --syntax-check
