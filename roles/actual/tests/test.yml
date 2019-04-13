@@ -2,4 +2,6 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - actual
+    - role: actual
+      tags:
+        - actual
