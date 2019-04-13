@@ -1,12 +1,15 @@
 ---
-- docker_image:
+- name: Pull Jenkins image.
+  docker_image:
     name: jenkins/jenkins:alpine
     pull: yes
     state: present
-- docker_network:
+- name: Verify docker network.
+  docker_network:
     name: money
     state: present
-- docker_container:
+- name: Start Jenkins
+  docker_container:
     image: jenkins/jenkins:alpine
     name: jenkins
     state: started
