@@ -3,6 +3,9 @@
     name: jenkins/jenkins:alpine
     pull: yes
     state: present
+- docker_network:
+    name: money
+    state: present
 - docker_container:
     image: jenkins/jenkins:alpine
     name: jenkins
