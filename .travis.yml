@@ -16,6 +16,7 @@ install:
   - pip install docker
   # Check ansible version
   - ansible --version
+  - which ansible
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../roles/' >ansible.cfg
 script:
