@@ -12,6 +12,8 @@
   docker_container:
     image: jenkins/jenkins:alpine
     name: jenkins
+    networks:
+      - name: money
     state: started
     volumes:
       - /srv/jenkins:/var/jenkins_home
