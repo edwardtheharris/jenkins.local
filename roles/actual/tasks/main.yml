@@ -1,2 +1,5 @@
 ---
-# tasks file for actual
+- docker_image:
+    name: jenkins/jenkins:alpine
+    pull: yes
+    state: present
