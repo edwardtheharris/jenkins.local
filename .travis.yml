@@ -12,16 +12,16 @@ addons:
     - python-pip
 install:
   # Install ansible
-  - pip install ansible
-  - pip install docker
+  - /home/travis/virtualenv/python3.6.3/bin/pip install ansible
+  - /home/travis/virtualenv/python3.6.3/bin/pip install docker
   # Check ansible version
-  - ansible --version
+  - /home/travis/virtualenv/python3.6.3/bin/ansible --version
   - which ansible
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../roles/' >ansible.cfg
 script:
   # Basic role syntax check
-  - ansible-playbook site.yml -i roles/actual/tests/inventory --syntax-check
-  - ansible-playbook site.yml -i roles/actual/tests/inventory
+  - /home/travis/virtualenv/python3.6.3/bin/ansible-playbook site.yml -i roles/actual/tests/inventory --syntax-check
+  - /home/travis/virtualenv/python3.6.3/bin/ansible-playbook site.yml -i roles/actual/tests/inventory
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
