@@ -1,6 +1,6 @@
 galaxy_info:
   author: Xander Harris
-  description: Quick and dirty Jenkins CI
+  description: 'Quick and dirty Jenkins CI'
   company: Brick House
   license: Unlicense
   min_ansible_version: 2.4
