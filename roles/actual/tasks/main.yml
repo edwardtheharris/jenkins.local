@@ -4,17 +4,24 @@
     name: jenkins/jenkins:alpine
     pull: yes
     state: present
+  tags:
+    - image
 - name: Verify docker network.
   docker_network:
     name: money
     state: present
+  tags:
+    - network
 - name: Start Jenkins
   docker_container:
     image: jenkins/jenkins:alpine
     name: jenkins
     networks:
       - name: money
+    restart_policy: always
     state: started
     volumes:
       - /srv/jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+  tags:
+    - container
