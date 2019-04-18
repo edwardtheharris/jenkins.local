@@ -24,6 +24,6 @@ script:
   # Basic role syntax check
   - ansible-playbook site.yml -i inventory --syntax-check
   - ansible-playbook site.yml -i inventory -t container
-  - ansible-playbook site.yml -i inventory -t stop
+  # - ansible-playbook site.yml -i inventory -t stop
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
