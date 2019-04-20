@@ -25,6 +25,14 @@
       - /var/run/docker.sock:/var/run/docker.sock
   tags:
     - container
+- name: Deploy Jenkins Stack
+  docker_stack:
+    name: jenkins
+    compose:
+      - roles/actual/files/stack.yml
+    state: present
+  tags:
+    - stack
 - name: Stop Jenkins
   docker_container:
     name: jenkins
