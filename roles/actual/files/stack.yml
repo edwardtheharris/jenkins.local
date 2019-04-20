@@ -1,0 +1,23 @@
+version: '3.7'
+networks:
+  jenkins:
+    external: true
+services:
+  manager:
+    command: '-jar /usr/share/jenkins/jenkins.war'
+    deploy:
+      replicas: 1
+      labels:
+        com.docker.lb.hosts: jenkins.manager
+        com.docker.lb.networks: jenkins
+        com.docker.lb.port: 8080
+      placement:
+        constraints:
+          - node.role==worker
+    entrypoint: java
+    image: jenkins/jenkins:alpine
+    networks:
+      - jenkins
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/srv/jenkins_home:/var/jenkins_home'
