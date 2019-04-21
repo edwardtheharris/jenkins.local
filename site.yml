@@ -1,5 +1,5 @@
 ---
-- hosts: ucp.brick-house.org
+- hosts: gcp
   roles:
     - role: actual
       tags:
