@@ -11,6 +11,7 @@ services:
         com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins
         com.docker.lb.port: 8080
+        org.brick-house: jenkins
       placement:
         constraints:
           - node.role==worker
@@ -22,5 +23,6 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock'
 volumes:
   jenkins-home:
+    name: jenkins-home
     labels:
       org.brick-house.jenkins.volume: "Jenkins Home"
