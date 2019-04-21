@@ -11,6 +11,8 @@ services:
         com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins
         com.docker.lb.port: 8080
+        com.docker.lb.redirects:
+          http://jenkins.brick-house.org,https://jenkins.brick-house.org
         org.brick-house: jenkins
       placement:
         constraints:
@@ -18,7 +20,7 @@ services:
     entrypoint: java
     image: jenkins/jenkins:alpine
     networks:
-      - jenkins
+      - main
     user: root
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
