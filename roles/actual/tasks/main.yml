@@ -1,6 +1,7 @@
 ---
 - name: Copy stack file.
   copy:
+    src: stack.yml
     dest: "{{ stack_path }}"
     owner: duchess
     group: docker
