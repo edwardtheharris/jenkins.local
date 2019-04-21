@@ -19,6 +19,7 @@ services:
     image: jenkins/jenkins:alpine
     networks:
       - jenkins
+    user: root
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
       - 'home:/var/jenkins_home:rw'
