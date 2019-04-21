@@ -4,7 +4,9 @@
     dest: /srv/jenkins_home
     state: directory
     owner: duchess
-    become: yes
+    group: docker
+    recurse: yes
+  become: yes
 - name: Pull Jenkins image.
   docker_image:
     name: jenkins/jenkins:alpine
@@ -32,6 +34,14 @@
       - /var/run/docker.sock:/var/run/docker.sock
   tags:
     - container
+    - start
+- name: Stop Jenkins
+  docker_container:
+    name: jenkins
+    state: absent
+  tags:
+    - container
+    - stop
 - name: Copy stack file.
   file:
     content: "{{ lookup('file', 'roles/actual/files/stack.yml') }}"
@@ -46,9 +56,3 @@
     state: present
   tags:
     - stack
-- name: Stop Jenkins
-  docker_container:
-    name: jenkins
-    state: absent
-  tags:
-    - stop
