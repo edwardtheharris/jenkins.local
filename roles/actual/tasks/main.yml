@@ -13,4 +13,3 @@
     state: present
   tags:
     - stack
-  delegate_to: ucp.brick-house.org
