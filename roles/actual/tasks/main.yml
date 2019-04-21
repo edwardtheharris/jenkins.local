@@ -28,8 +28,10 @@
     - container
 - name: Copy stack file.
   copy:
-    src: stack.yml
+    src: files/stack.yml
     dest: /tmp/stack.yml
+  tags:
+    - stack
 - name: Deploy Jenkins Stack
   docker_stack:
     name: jenkins
