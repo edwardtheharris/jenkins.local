@@ -1,6 +1,5 @@
 ---
 - hosts: ucp.brick-house.org
-  environment: "{{ docker_env }}"
   roles:
     - role: actual
       tags:
