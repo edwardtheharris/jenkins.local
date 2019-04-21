@@ -4,6 +4,7 @@
     name: jenkins/jenkins:alpine
     pull: yes
     state: present
+    tls_verify: no
   tags:
     - image
 - name: Verify docker network.
