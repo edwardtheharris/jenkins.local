@@ -1,4 +1,10 @@
 ---
+- name: Create directories.
+  file:
+    dest: /srv/jenkins_home
+    state: directory
+    owner: duchess
+    become: yes
 - name: Pull Jenkins image.
   docker_image:
     name: jenkins/jenkins:alpine
@@ -27,16 +33,16 @@
   tags:
     - container
 - name: Copy stack file.
-  copy:
-    src: files/stack.yml
-    dest: /tmp/stack.yml
-  tags:
-    - stack
+  file:
+    content: "{{ lookup('file', 'roles/actual/files/stack.yml') }}"
+    dest: "{{ stack_path }}"
+    owner: duchess
+    group: docker
 - name: Deploy Jenkins Stack
   docker_stack:
     name: jenkins
     compose:
-      - /tmp/stack.yml
+      - "{{ stack_path }}"
     state: present
   tags:
     - stack
