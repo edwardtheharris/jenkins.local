@@ -24,6 +24,6 @@ services:
       - 'home:/var/jenkins_home:rw'
 volumes:
   home:
-    name: jenkins-home
+    name: home
     labels:
       org.brick-house.jenkins.volume: "Jenkins Home"
