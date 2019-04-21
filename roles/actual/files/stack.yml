@@ -20,4 +20,7 @@ services:
       - jenkins
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
-      - '/srv/jenkins_home:/var/jenkins_home'
+volumes:
+  jenkins-home:
+    labels:
+      org.brick-house.jenkins.volume: "Jenkins Home"

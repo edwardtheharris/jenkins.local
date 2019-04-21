@@ -1,7 +1,7 @@
 ---
 - name: Copy stack file.
   file:
-    content: "{{ lookup('file', 'roles/actual/files/stack.yml') }}"
+    content: "{{ lookup('file', '/srv/jenkins.actual/roles/actual/files/stack.yml') }}"
     dest: "{{ stack_path }}"
     owner: duchess
     group: docker
@@ -13,3 +13,4 @@
     state: present
   tags:
     - stack
+  delegate_to: ucp.brick-house.org
