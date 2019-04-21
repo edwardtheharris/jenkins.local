@@ -31,10 +31,6 @@
     compose:
       - roles/actual/files/stack.yml
     state: present
-  environment:
-    DOCKER_CERT_PATH: '/Users/duchess/Downloads/ucp-bundle-xander'
-    DOCKER_HOST: 'tcp://ucp.brick-house.org:443'
-    DOCKER_TLS_VERIFY: 1
   tags:
     - stack
 - name: Stop Jenkins

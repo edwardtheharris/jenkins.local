@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  environment: "{{ docker_env }}"
   roles:
     - role: actual
       tags:
