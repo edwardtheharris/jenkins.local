@@ -26,11 +26,15 @@
       - /var/run/docker.sock:/var/run/docker.sock
   tags:
     - container
+- name: Copy stack file.
+  copy:
+    src: stack.yml
+    dest: /tmp/stack.yml
 - name: Deploy Jenkins Stack
   docker_stack:
     name: jenkins
     compose:
-      - roles/actual/files/stack.yml
+      - /tmp/stack.yml
     state: present
   tags:
     - stack
