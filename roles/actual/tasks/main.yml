@@ -1,4 +1,11 @@
 ---
+- name: Copy secret key to master.
+  template:
+    src: jenkins.brick-house.org.key
+    dest: /tmp/jenkins.brick-house.org.key
+- name: Create or update secret key.
+  docker_secret:
+
 - name: Copy stack file.
   copy:
     src: stack.yml

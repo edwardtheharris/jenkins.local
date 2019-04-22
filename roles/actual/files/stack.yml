@@ -11,12 +11,14 @@ services:
         com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins
         com.docker.lb.port: 8080
-        com.docker.lb.ssl_passthrough: 'true'
-        org.brick-house.jenkins: true
+        com.docker.lb.ssl_passthrough: 'false'
+        com.docker.lb.ssl_key: jenkins.brick-house.org.key
+        org.brick-house.jenkins: 1
       placement:
         constraints:
           - node.role==worker
     entrypoint: java
+    hostname: jenkins.brick-house.org
     image: jenkins/jenkins:alpine
     networks:
       - main
