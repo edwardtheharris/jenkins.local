@@ -11,6 +11,7 @@ services:
         com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins
         com.docker.lb.port: 8080
+        com.docker.lb.ssl_passthrough: true
         org.brick-house: jenkins
       placement:
         constraints:
