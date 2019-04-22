@@ -11,6 +11,8 @@ services:
         com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins_main
         com.docker.lb.port: 8080
+        com.docker.lb.redirects:
+          http://jenkins.brick-house.org,https://jenkins.brick-house.org
         com.docker.lb.ssl_key: jenkins.brick-house.key
         com.docker.lb.ssl_cert: jenkins.brick-house.crt
         org.brick-house.jenkins: 1
