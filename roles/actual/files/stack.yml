@@ -12,7 +12,7 @@ services:
         com.docker.lb.networks: jenkins
         com.docker.lb.port: 8080
         com.docker.lb.ssl_passthrough: 'true'
-        org.brick-house: jenkins
+        org.brick-house.jenkins: true
       placement:
         constraints:
           - node.role==worker
