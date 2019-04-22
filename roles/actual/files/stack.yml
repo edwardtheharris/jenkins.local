@@ -9,7 +9,7 @@ services:
       replicas: 1
       labels:
         com.docker.lb.hosts: jenkins.brick-house.org
-        com.docker.lb.networks: jenkins
+        com.docker.lb.networks: jenkins_main
         com.docker.lb.port: 8080
         com.docker.lb.ssl_key: jenkins.brick-house.org.key
         com.docker.lb.ssl_cert: com.docker.lb.ssl_cert
