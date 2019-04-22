@@ -1,12 +1,12 @@
 ---
 - name: Create or update secret key.
   docker_secret:
-    name: jenkins.brick-house.org.key
+    name: jenkins.brick-house.key
     data: "{{ lookup('file', 'roles/actual/files/key.pem') }}"
     state: present
 - name: Create or update certificate.
   docker_secret:
-    name: jenkins.brick-house.org.crt
+    name: jenkins.brick-house.crt
     data: "{{ lookup('file', 'roles/actual/files/cert.pem') }}"
     state: present
 - name: Copy stack file.
