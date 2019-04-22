@@ -1,11 +1,14 @@
 ---
-- name: Copy secret key to master.
-  template:
-    src: jenkins.brick-house.org.key
-    dest: /tmp/jenkins.brick-house.org.key
 - name: Create or update secret key.
   docker_secret:
-
+    name: jenkins.brick-house.org.key
+    data: "{{ lookup('file', 'roles/actual/files/key.pem') }}"
+    state: present
+- name: Create or update certificate.
+  docker_secret:
+    name: jenkins.brick-house.org.crt
+    data: "{{ lookup('file', 'roles/actual/files/cert.pem') }}"
+    state: present
 - name: Copy stack file.
   copy:
     src: stack.yml
