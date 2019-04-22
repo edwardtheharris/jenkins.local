@@ -8,7 +8,7 @@ services:
     deploy:
       replicas: 1
       labels:
-        com.docker.lb.hosts: tmp.brick-house.org
+        com.docker.lb.hosts: jenkins.brick-house.org
         com.docker.lb.networks: jenkins_main
         com.docker.lb.port: 8080
         com.docker.lb.ssl_key: jenkins.brick-house.org.key
