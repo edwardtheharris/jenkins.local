@@ -1,8 +1,12 @@
 ---
-- name: Copy files to /tmp.
+- name: Create build directory.
+  file:
+    dest: /srv/build
+    state: directory
+- name: Copy files to build directory.
   copy:
     src: "{{ item }}"
-    dest: "/tmp/{{ item }}"
+    dest: "/srv/build/{{ item }}"
   loop:
     - Dockerfile
     - hosts
@@ -12,3 +16,7 @@
     push: yes
     path: /tmp
     state: present
+- name: Clean up build dir.
+  file:
+    dest: /srv/build
+    state: absent
