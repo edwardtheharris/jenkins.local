@@ -4,3 +4,6 @@
     - role: actual
       tags:
         - actual
+    - role: agents
+      tags:
+        - agents
