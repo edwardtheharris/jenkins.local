@@ -2,7 +2,6 @@
 - name: Build agent image.
   docker_image:
     name: gcr.io/xander-the-harris-jenkins/jnlp-agent:latest
-    source: build
     push: yes
     path: ../files/
     state: present
