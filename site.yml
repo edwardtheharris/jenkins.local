@@ -4,6 +4,8 @@
     - role: actual
       tags:
         - actual
+- hosts: localhost
+  roles: 
     - role: agents
       tags:
         - agents
