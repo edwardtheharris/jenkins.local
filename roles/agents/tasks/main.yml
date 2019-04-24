@@ -13,8 +13,10 @@
 - name: Build agent image.
   docker_image:
     name: gcr.io/xander-the-harris-jenkins/jnlp-agent:latest
-    push: yes
-    path: /tmp
+    build:
+      push: yes
+      path: /tmp
+    source: build
     state: present
 - name: Clean up build dir.
   file:
