@@ -3,6 +3,9 @@
   copy:
     src: "{{ item }}"
     dest: "/tmp/{{ item }}"
+  loop:
+    - Dockerfile
+    - hosts
 - name: Build agent image.
   docker_image:
     name: gcr.io/xander-the-harris-jenkins/jnlp-agent:latest
