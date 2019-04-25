@@ -4,3 +4,7 @@
     - role: actual
       tags:
         - actual
+    - role: agents
+      become: yes
+      tags:
+        - agents
