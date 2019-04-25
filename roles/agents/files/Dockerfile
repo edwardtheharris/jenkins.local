@@ -8,7 +8,7 @@ RUN git clone https://github.com/ansible/ansible
 WORKDIR /opt/ansible
 RUN pip3 install --upgrade pip
 RUN pip3 install ansible/
-RUN pip3 install ansible-lint
+RUN pip3 install ansible-lint ansible-lint-junit
 RUN pip3 install beancount beancount-plugins fava
 RUN mkdir -p /etc/ansible
 COPY hosts /etc/ansible/hosts
