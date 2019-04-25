@@ -12,7 +12,7 @@ before_install:
   -in .vault.enc -out .vault -d
 install:
 - sudo mkdir -p /etc/ansible/vault
-- cp .vault /etc/ansible/vault/jenkins
+- sudo cp .vault /etc/ansible/vault/jenkins
 - pip install git+https://github.com/ansible/ansible
 - pip install docker
 - ansible --version
