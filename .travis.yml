@@ -21,7 +21,7 @@ install:
 - printf 'localhost ansible_connection=local ansible_python_interpreter=/home/travis/virtualenv/python3.6.3/bin/python'
   >inventory
 script:
-- ansible-playbook site.yml -i inventory --syntax-check
-- ansible-playbook site.yml -i inventory -t container
+- ansible-playbook site.yml --syntax-check
+- ansible-playbook site.yml container
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
