@@ -21,6 +21,6 @@ install:
 - which ansible
 script:
 - ansible-playbook site.yml --syntax-check
-- ansible-playbook site.yml container
+- ansible-playbook site.yml -t container
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
