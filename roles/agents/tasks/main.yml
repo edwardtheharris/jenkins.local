@@ -1,0 +1,24 @@
+---
+- name: Create build directory.
+  file:
+    dest: /srv/build
+    state: directory
+- name: Copy files to build directory.
+  copy:
+    src: "{{ item }}"
+    dest: "/srv/build/{{ item }}"
+  loop:
+    - Dockerfile
+    - hosts
+- name: Build agent image.
+  docker_image:
+    name: gcr.io/xander-the-harris-jenkins/jnlp-agent:latest
+    build:
+      push: yes
+      path: /srv/build
+    source: build
+    state: present
+- name: Clean up build dir.
+  file:
+    dest: /srv/build
+    state: absent
