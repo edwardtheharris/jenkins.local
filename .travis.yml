@@ -11,8 +11,10 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_797dcd9eb7ac_key -iv $encrypted_797dcd9eb7ac_iv
   -in .vault.enc -out .vault -d
 install:
-- sudo mkdir -p /etc/ansible/vault
-- sudo cp .vault /etc/ansible/vault/jenkins
+- sudo mkdir -p /etc/ansible/vault /etc/ansible/hosts
+- sudo chown -R $USER /etc/ansible
+- cp .vault /etc/ansible/vault/jenkins
+- cp .inventory /etc/ansible/hosts/hosts
 - pip install git+https://github.com/ansible/ansible
 - pip install docker
 - ansible --version
